@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
   const data = useLoaderData();
@@ -12,6 +12,11 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <ul>
+        <li>
+          <Link to={'/pages/Home'}>Home</Link>
+        </li>
+      </ul>
     </div>
   );
 };
