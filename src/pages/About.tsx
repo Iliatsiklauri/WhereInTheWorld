@@ -1,11 +1,10 @@
 import { useLoaderData } from 'react-router-dom';
 
-const About = ({ countryId }) => {
+const About = () => {
   const data = useLoaderData();
-  console.log(countryId);
   return (
     <div>
-      <h1>{data[countryId].name.common}</h1>
+      <h1>{data[0].name.common}</h1>
     </div>
   );
 };
