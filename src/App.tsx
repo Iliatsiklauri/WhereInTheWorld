@@ -22,7 +22,7 @@ function App() {
         />
         <Route
           path="about"
-          element={<About countryId={countryId} />}
+          element={<About />}
           loader={async () => {
             return fetch(`https://restcountries.com/v3.1/all`);
           }}
