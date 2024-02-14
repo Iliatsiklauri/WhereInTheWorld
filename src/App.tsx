@@ -10,13 +10,12 @@ import Home from './pages/Home';
 import About from './pages/About';
 
 function App() {
-  const [countryId, setCountryId] = useState(1);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route
           index
-          element={<Home setCountryId={setCountryId} />}
+          element={<Home />}
           loader={async () => {
             return fetch('https://restcountries.com/v3.1/all');
           }}
