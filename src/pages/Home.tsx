@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
-const Home = ({ setCountryId }) => {
+const Home = () => {
   const data = useLoaderData();
   console.log(data);
   return (
@@ -9,12 +9,11 @@ const Home = ({ setCountryId }) => {
         {data.map((el, id) => (
           <Link to={'/about'}>
             <div
-              onClick={() => setCountryId(id)}
               key={id}
               className="cursor-pointer  w-[264px] h-[336px] bg-[#2B3844] rounded-md"
             >
               <img src={`${el.flags.png}`} alt="" className="w-[264px] h-[160px]" />
-              <d iv className="p-6 flex flex-col">
+              <div className="p-6 flex flex-col">
                 <h1 className="w-56 text-white mb-4 text-xl font-semibold leading-26">
                   {el.name.common}
                 </h1>
@@ -38,7 +37,7 @@ const Home = ({ setCountryId }) => {
                     {el.capital}
                   </p>
                 </div>
-              </d>
+              </div>
             </div>
           </Link>
         ))}

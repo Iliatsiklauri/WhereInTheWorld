@@ -8,7 +8,6 @@ import './App.css';
 import { Root } from './pages/Root';
 import Home from './pages/Home';
 import About from './pages/About';
-import { useState } from 'react';
 
 function App() {
   const [countryId, setCountryId] = useState(1);
