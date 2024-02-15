@@ -1,7 +1,30 @@
 import { useLoaderData } from 'react-router-dom';
-
+interface CountryData {
+  flags?: {
+    png: string;
+  };
+  name: {
+    common: string;
+  };
+  demonyms: {
+    eng: {
+      f: string;
+    };
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  capital: string;
+  tld: string[];
+  languages: {
+    [index: number]: {
+      name: string;
+    };
+  }[];
+  borders: string[];
+}
 const About = () => {
-  const data = useLoaderData();
+  const data = useLoaderData() as CountryData[];
   return (
     <div>
       <img src={`${data[0].flags?.png}`} alt="" />
@@ -14,7 +37,6 @@ const About = () => {
         <h1>4 დედაქალაქი{data[0].capital}</h1>
         <h1>top level domain {data[0].tld}</h1>
         {/* <h1>6{data[0]?.currencies}</h1> */}
-        <h1>languages : {data[0].languages?.[0]?.name}</h1>
         <h1>
           borders
           {data[0].borders?.map((el, key) => (

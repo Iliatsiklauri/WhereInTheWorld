@@ -1,16 +1,29 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
-const Home = () => {
-  const data = useLoaderData();
-  const [search, setSearch] = useState('');
-  const [selectedContinent, setSelectedContinent] = useState('');
+interface Country {
+  name: {
+    common: string;
+  };
+  flags: {
+    png: string;
+  };
+  population: number;
+  region: string;
+  capital: string;
+}
 
-  const changeInput = (e) => {
+const Home: React.FC = () => {
+  const data = useLoaderData() as Country[];
+
+  const [search, setSearch] = useState('');
+  const [selectedContinent, setSelectedContinent] = useState<string>(''); // Set an appropriate initial value
+
+  const changeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
-  const changeContinent = (e) => {
+  const changeContinent = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedContinent(e.target.value);
   };
 
@@ -30,8 +43,8 @@ const Home = () => {
           <option value="" disabled hidden>
             Choose a continent
           </option>
-          {continents.map((continent, index) => (
-            <option key={index} value={continent}>
+          {continents.map((continent) => (
+            <option key={continent} value={continent}>
               {continent}
             </option>
           ))}
