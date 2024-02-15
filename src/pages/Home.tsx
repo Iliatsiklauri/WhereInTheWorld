@@ -24,10 +24,12 @@ const Home = () => {
 
   return (
     <div className="bg-[#202C36]">
-      <div className="flex items-start gap-4 p-4 flex-col w-full ">
+      <div className="flex items-center gap-4 p-4">
         <input type="text" placeholder="Search by country" onChange={changeInput} />
         <select onChange={changeContinent} value={selectedContinent}>
-          <option value="">Choose a continent</option>
+          <option value="" disabled hidden>
+            Choose a continent
+          </option>
           {continents.map((continent, index) => (
             <option key={index} value={continent}>
               {continent}
