@@ -21,10 +21,10 @@ function App() {
           }}
         />
         <Route
-          path="about"
+          path=":id"
           element={<About />}
-          loader={async () => {
-            return fetch(`https://restcountries.com/v3.1/all`);
+          loader={async ({ params }) => {
+            return fetch(`https://restcountries.com/v3.1/name/${params.id}`);
           }}
         />
       </Route>
